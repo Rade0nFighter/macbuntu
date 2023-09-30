@@ -17,8 +17,9 @@ See [here](https://askubuntu.com/questions/1254124/ubuntu-20-04-lts-no-sound-on-
 - `./install.cirrus.driver.sh`
 - `reboot`
 
-
-
+## Keyboard backlight
+sudo nano /sys/class/leds/spi\:\:kbd_backlight/brightness
+set to `5`
 
 ## Facetime camera
 https://askubuntu.com/questions/990218/camera-not-working-on-macbook-pro
