@@ -3,6 +3,20 @@
 ## Bootloader
 Install refind through Ubuntu. If it ceases to be the default at boot time, try `refind-mkdefault` [see here for more info](https://askubuntu.com/questions/936398/refind-doal-boot-option-disappeared-after-ubuntu-14-to-16-upgrade)
 
+refind-mkdefault should restore it. If EFI variables not enabled, run
+efivar -l 
+Use efibootmgr to specify default
+grub-install --target=x86_64-efi --efi-directory=/boot/efi
+
+Add efi=runtime to your kernel parameters in /etc/default/grub configuration.
+
+GRUB_CMDLINE_LINUX_DEFAULT="efi=runtime quiet"
+
+Don't forget sudo update-grub2 !
+
+https://unix.stackexchange.com/a/602388
+
+
 ## Wifi
 See [here](https://gist.github.com/rob-hills/9134b7352ee7471c4d4f4fbd6454c4b9) and [here](https://bugzilla.kernel.org/show_bug.cgi?id=193121#c74)
 
@@ -16,6 +30,8 @@ See [here](https://askubuntu.com/questions/1254124/ubuntu-20-04-lts-no-sound-on-
 - `cd snd_hda_macbookpro/`
 - `./install.cirrus.driver.sh`
 - `reboot`
+
+The primary audio should be set to Analogue Stereo Output in the Settings Audio dialog.
 
 ## Keyboard backlight
 sudo nano /sys/class/leds/spi\:\:kbd_backlight/brightness
