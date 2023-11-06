@@ -3,18 +3,15 @@
 ## Bootloader
 Install refind through Ubuntu. If it ceases to be the default at boot time, try `refind-mkdefault` [see here for more info](https://askubuntu.com/questions/936398/refind-doal-boot-option-disappeared-after-ubuntu-14-to-16-upgrade)
 
-refind-mkdefault should restore it. If EFI variables not enabled, run
-efivar -l 
-Use efibootmgr to specify default
-grub-install --target=x86_64-efi --efi-directory=/boot/efi
+refind-mkdefault should restore it. If EFI variables not enabled, see guidance for "blessing" refind - https://answers.launchpad.net/ubuntu/+question/708251 - requires disabling SIP again.
 
-Add efi=runtime to your kernel parameters in /etc/default/grub configuration.
-
-GRUB_CMDLINE_LINUX_DEFAULT="efi=runtime quiet"
-
-Don't forget sudo update-grub2 !
-
-https://unix.stackexchange.com/a/602388
+- Disable SIP: (https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection)
+-- Boot into recovery mode by holding Cmd+R
+-- Open a terminal, run `csrutil disable`
+- Log back in to macOS and "bless" refind (Bullt #3 from https://askubuntu.com/questions/936398/refind-doal-boot-option-disappeared-after-ubuntu-14-to-16-upgrade)
+-- `mkdir /Volumes/ESP`
+-- `sudo mount -t msdos /dev/disk0s1 /Volumes/ESP`
+-- `sudo bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/efi/refind/refind_x64.efi --shortform`
 
 
 ## Wifi
