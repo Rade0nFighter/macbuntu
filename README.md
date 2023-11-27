@@ -36,3 +36,28 @@ set to `5`
 
 ## Facetime camera
 https://askubuntu.com/questions/990218/camera-not-working-on-macbook-pro
+
+## Integrated (Intel) Graphics
+https://github.com/Dunedan/mbp-2016-linux#intel
+
+Set spoof_osx_version option in your refind.conf to e.g. 10.12
+`sudo mount /dev/nvme0n1p1 /efi`
+`sudo nano /efi/EFI/Refind/refind.conf` - then search for spoof_osx_version
+
+Create xorg profile at `etc/X11/xorg.conf.d/20-intel.conf` with this content:
+```
+Section "Device"
+	Identifier "Intel Graphics"
+	Driver "intel"
+	BusID "PCI:0:2:0"
+	Option "TearFree" "true"
+	Option "AccelMethod" "glamor"
+EndSection```
+
+```git clone https://github.com/0xbb/gpu-switch
+cd gpu-switch
+./gpu-switch -i # needs root. switches system to iGPU. needs reboot.
+reboot
+```
+
+Settings > About should now show your Intel GPU as active.
