@@ -9,10 +9,10 @@ refind-mkdefault should restore it. If EFI variables not enabled, see guidance f
 -- Boot into recovery mode by holding Cmd+R
 -- Open a terminal, run `csrutil disable`
 - Log back in to macOS and "bless" refind (Bullt #3 from https://askubuntu.com/questions/936398/refind-doal-boot-option-disappeared-after-ubuntu-14-to-16-upgrade)
--- `mkdir /Volumes/ESP`
+-- `sudo mkdir /Volumes/ESP`
 -- `sudo mount -t msdos /dev/disk0s1 /Volumes/ESP`
 -- `sudo bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/efi/refind/refind_x64.efi --shortform`
-
+-- reboot and renable SIP `csrutil disable`
 
 ## Wifi
 See [here](https://gist.github.com/rob-hills/9134b7352ee7471c4d4f4fbd6454c4b9) and [here](https://bugzilla.kernel.org/show_bug.cgi?id=193121#c74)
@@ -41,6 +41,7 @@ https://askubuntu.com/questions/990218/camera-not-working-on-macbook-pro
 https://github.com/Dunedan/mbp-2016-linux#intel
 
 Set spoof_osx_version option in your refind.conf to e.g. 10.12
+`sudo mkdir /efi`
 `sudo mount /dev/nvme0n1p1 /efi`
 `sudo nano /efi/EFI/Refind/refind.conf` - then search for spoof_osx_version
 
