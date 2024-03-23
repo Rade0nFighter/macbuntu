@@ -1,5 +1,7 @@
 # macbuntu
 
+Documentation from my trials and tribulations installing ubuntu 20.10 on a 2017 Macbook Pro.
+
 ## Bootloader
 Install refind through Ubuntu. If it ceases to be the default at boot time, try `refind-mkdefault` [see here for more info](https://askubuntu.com/questions/936398/refind-doal-boot-option-disappeared-after-ubuntu-14-to-16-upgrade)
 
