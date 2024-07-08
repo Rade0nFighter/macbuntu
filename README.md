@@ -17,6 +17,9 @@ refind-mkdefault should restore it. If EFI variables not enabled, see guidance f
 -- Reboot into recovery mode by holding Cmd+R
 -- Open a terminal, run `csrutil enable`
 
+Editing refind.conf from Ubuntu: `sudo nano /boot/efi/EFI/refind/refind.conf`
+
+
 ## Wifi
 See [here](https://gist.github.com/rob-hills/9134b7352ee7471c4d4f4fbd6454c4b9) and [here](https://bugzilla.kernel.org/show_bug.cgi?id=193121#c74)
 
@@ -34,7 +37,7 @@ See [here](https://askubuntu.com/questions/1254124/ubuntu-20-04-lts-no-sound-on-
 The primary audio should be set to Analogue Stereo Output in the Settings Audio dialog.
 
 ## Keyboard backlight
-sudo nano /sys/class/leds/spi\:\:kbd_backlight/brightness
+`sudo nano /sys/class/leds/spi\:\:kbd_backlight/brightness`
 set to `5`
 
 ## Facetime camera
