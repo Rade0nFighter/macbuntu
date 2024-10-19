@@ -25,6 +25,8 @@ See [here](https://gist.github.com/rob-hills/9134b7352ee7471c4d4f4fbd6454c4b9) a
 
 - `cp brcmfmac43602-pcie.txt /usr/lib/firmware/brcm/`
 
+*Note: WiFi fails to connect (network not found/error configuring interface errors) using WPA3 - force WPA2 from network settings.*
+
 ## Audio (Output + Input)
 See [here](https://askubuntu.com/questions/1254124/ubuntu-20-04-lts-no-sound-on-macbookpro)
 
