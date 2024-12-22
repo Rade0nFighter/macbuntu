@@ -39,8 +39,9 @@ See [here](https://askubuntu.com/questions/1254124/ubuntu-20-04-lts-no-sound-on-
 The primary audio should be set to Analogue Stereo Output in the Settings Audio dialog.
 
 ## Keyboard backlight
+Adjust the keyboard brightness and ranges from 1 to 255.
 `sudo nano /sys/class/leds/spi\:\:kbd_backlight/brightness`
-set to `5`
+set to e.g. `5`
 
 ## Facetime camera
 https://askubuntu.com/questions/990218/camera-not-working-on-macbook-pro
