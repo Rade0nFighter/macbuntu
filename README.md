@@ -62,9 +62,16 @@ Section "Device"
 	BusID "PCI:0:2:0"
 	Option "TearFree" "true"
 	Option "AccelMethod" "glamor"
-EndSection```
+EndSection
+```
 
-```git clone https://github.com/0xbb/gpu-switch
+Manual switching only for Intel <> AMD GPU before the next boot, which can be acheieved using the below git repo: 
+
+* `git clone https://github.com/0xbb/gpu-switch`
+
+From then on you can use the script provideed by that repo:
+
+```
 cd gpu-switch
 ./gpu-switch -i # needs root. switches system to iGPU. needs reboot.
 reboot
